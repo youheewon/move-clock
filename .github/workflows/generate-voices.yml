@@ -28,7 +28,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: pip
       - name: Install Supertonic
         run: python -m pip install supertonic
       - name: Generate both voice packs
