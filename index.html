@@ -141,11 +141,16 @@
   async function playClip(message,profile,request){const url=voiceURL(profile,message);if(!url)return false;
     if(!audio||audio.state!=='running')return false;
     let buffer=decodedClips.get(url);
-    if(!buffer){try{const bytes=preloadedBytes.get(url) || await (await fetch(url)).arrayBuffer();buffer=await audio.decodeAudioData(bytes.slice(0));decodedClips.set(url,buffer);}catch(e){console.warn('Voice decode failed:',e);return false;}}
+    if(!buffer){try{const bytes=preloadedBytes.get(url) || await (await fetch(url)).arrayBuffer();buffer=await audio.decodeAudioData(bytes.slice(0));
+      // Reject silent Supertonic outputs: a valid WAV header does not prove there is speech.
+      const samples=buffer.getChannelData(0);let maxSignal=0;
+      for(let i=0;i<samples.length;i+=Math.max(1,Math.floor(samples.length/4096)))maxSignal=Math.max(maxSignal,Math.abs(samples[i]));
+      if(maxSignal<0.008){console.warn('Silent voice clip rejected:',url);return false;}
+      decodedClips.set(url,buffer);}catch(e){console.warn('Voice decode failed:',e);return false;}}
     // Drop stale completed async requests when the phase has changed.
     if(profile!==settings.profile||request!==speechRequest)return true;
     try{if(currentClip)currentClip.stop();}catch{}
-    try{const node=audio.createBufferSource();node.buffer=buffer;node.playbackRate.value=1.055;const boost=audio.createGain();boost.gain.value=1.55;const limiter=audio.createDynamicsCompressor();limiter.threshold.value=-17;limiter.knee.value=5;limiter.ratio.value=12;limiter.attack.value=.002;limiter.release.value=.13;node.connect(boost);boost.connect(limiter);limiter.connect(audio.destination);node.start();currentClip=node;node.onended=()=>{if(currentClip===node)currentClip=null;};return true;}catch(e){console.warn(e);return false;}
+    try{const node=audio.createBufferSource();node.buffer=buffer;node.playbackRate.value=profile==='male'?1:1.055;const boost=audio.createGain();boost.gain.value=1.55;const limiter=audio.createDynamicsCompressor();limiter.threshold.value=-17;limiter.knee.value=5;limiter.ratio.value=12;limiter.attack.value=.002;limiter.release.value=.13;node.connect(boost);boost.connect(limiter);limiter.connect(audio.destination);node.start();currentClip=node;node.onended=()=>{if(currentClip===node)currentClip=null;};return true;}catch(e){console.warn(e);return false;}
   }
   let speechRequest=0;
   async function speak(message){if(!settings.voice)return;const request=++speechRequest;
