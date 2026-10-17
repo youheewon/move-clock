@@ -16,6 +16,30 @@
     #sessionPage[hidden],#homePage[hidden]{display:none}.session-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.back{border:0;background:transparent;color:#dae4e7;font-weight:700;padding:10px 0}.step-label{color:var(--muted);font-size:12px}.session-card{background:linear-gradient(145deg,#1e2d35,#151f28);border:1px solid #3a4a54;border-radius:27px;padding:24px 20px 26px;margin-top:25px;text-align:center}.phase{display:inline-flex;align-items:center;gap:8px;background:#2c3940;border-radius:40px;color:var(--mint);padding:8px 14px;font-size:12px;font-weight:800;letter-spacing:.04em}.phase.rest{background:#403523;color:var(--warn)}.phase.done{background:#294535;color:var(--mint)}.session-name{font-size:clamp(23px,5vw,34px);font-weight:800;letter-spacing:-.04em;margin:25px 0 6px}.session-set{font-size:14px;color:var(--muted)}.time{font-size:clamp(84px,18vw,140px);font-weight:850;line-height:1.25;letter-spacing:-.085em;font-variant-numeric:tabular-nums;font-feature-settings:'tnum';margin:12px 0;color:var(--text)}.time.rest{color:var(--warn)}.progress{width:100%;height:7px;background:#394451;border-radius:20px;overflow:hidden;margin:20px 0}.progress>span{height:100%;display:block;background:var(--mint);border-radius:20px;width:0%;transition:width .2s linear}.session-help{color:var(--muted);font-size:13px;line-height:1.7;min-height:22px}.controls{display:flex;gap:10px;margin:20px 0 0}.controls>*{min-width:0}.controls .primary{font-size:16px;padding:19px 13px}.controls .secondary{flex:0 0 auto;min-width:74px}.session-footer{display:flex;gap:12px;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:19px;line-height:1.5}.next-card{background:var(--panel);border:1px solid var(--edge);border-radius:17px;padding:17px 19px;margin-top:17px}.next-card .subtle{margin-bottom:7px}.next-card b{font-size:15px}.next-card span{font-size:12px;color:var(--muted);display:block;margin-top:6px}.warning{color:var(--warn);font-size:12px;line-height:1.7;margin-top:16px}
     dialog{width:min(95vw,640px);max-height:min(94svh,850px);padding:0;border:1px solid #46525c;border-radius:22px;background:#171e27;color:var(--text);box-shadow:0 22px 80px #000b}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}.dialog-body{padding:24px;overflow-y:auto;max-height:94svh}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.dialog-head h2{margin:0;font-size:20px}.field{display:flex;flex-direction:column;gap:7px;margin:18px 0}.field label{font-size:12px;color:#bdc8d5;font-weight:700}input,select{background:#101720;color:white;border:1px solid #485564;border-radius:10px;padding:11px 12px;width:100%;min-width:0}input[type=number]{font-variant-numeric:tabular-nums}.edit-item{background:#202a35;border:1px solid #3e4b58;padding:14px;margin:12px 0;border-radius:14px}.edit-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.edit-top strong{font-size:12px}.mini{color:var(--red);background:transparent;border:0;padding:5px 7px;font-size:12px}.edit-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.edit-fields label{font-size:11px;color:#abb9c7;display:block;margin:8px 0 7px}.edit-fields input{padding:10px 8px}.hint{font-size:11px;color:var(--muted);line-height:1.6}.dialog-actions{display:flex;gap:8px;margin-top:19px}.dialog-actions button{flex:1}.danger{color:var(--red)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(min-width:650px){.app{padding-left:32px;padding-right:32px}.routine-grid{grid-template-columns:1fr 1fr}.routine{min-height:230px}.routine:first-child{grid-column:span 2}.routine:first-child .rname{font-size:23px}.session-card{padding:40px}.section-header{margin-top:42px}}@media(max-width:410px){.time{font-size:clamp(70px,17vw,100px)}.session-card{padding:18px 15px}.controls .secondary{min-width:66px;padding-left:12px;padding-right:12px}.dialog-body{padding:16px}}
+    /* V2 - immediately readable workout dashboard */
+    .top{margin-bottom:24px}.routine:first-child{border-color:#568776;background:linear-gradient(130deg,#1e3832,#162329)}
+    .routine .rmeta strong{color:var(--mint)}
+    .settings{margin-top:12px}.voice-select{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:13px;padding:14px 16px;background:#171e28;border:1px solid var(--edge);border-radius:14px}
+    .voice-select label{flex:0 0 auto;font-size:13px;font-weight:800}.voice-select select{flex:1;min-width:185px}.voice-status{width:100%;font-size:12px;color:var(--muted);line-height:1.6}
+    .voice-status.ready{color:var(--mint)}.voice-status.pending{color:var(--warn)}
+    .sound-test-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.sound-test-row .secondary{font-size:12px;padding:11px 14px}
+    .session-top{margin-top:4px}.session-overview{margin:25px 0 13px;background:#151f27;border:1px solid #31434b;border-radius:18px;padding:17px 20px}
+    .overview-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:#cbdcd8}
+    .overview-label strong{font-size:24px;color:var(--mint);font-variant-numeric:tabular-nums;letter-spacing:-.02em}.overview-label em{font-style:normal;color:var(--muted);font-size:12px}
+    .overview-bar{height:8px;background:#36444c;border-radius:10px;overflow:hidden;margin-top:13px}
+    .overview-bar>span{display:block;height:100%;width:0;background:var(--mint);border-radius:10px;transition:width .12s linear}
+    .session-card{margin-top:13px}.session-name{margin:18px 0 7px;overflow-wrap:anywhere}.session-headline{color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.05em;margin-top:18px}
+    .session-set{font-size:15px;color:#c6d5df;line-height:1.65;min-height:25px}.session-help{min-height:42px}
+    .session-card.is-rest{background:linear-gradient(145deg,#3e3325,#211e23);border-color:#896c3b}.session-card.is-rest .session-headline{color:#f1d09a}
+    .session-card.is-work{border-color:#507e6b}.session-card.is-done{border-color:#5f957b}
+    .routine-timeline{background:#161f28;border:1px solid var(--edge);border-radius:20px;padding:19px 17px;margin-top:18px}
+    .timeline-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.timeline-head h2{margin:0;font-size:16px}.timeline-head span{color:var(--muted);font-size:12px}
+    .timeline{display:flex;flex-direction:column;gap:7px}.timeline-item{padding:12px 11px;border-radius:11px;display:flex;align-items:center;gap:11px;border:1px solid transparent;min-width:0;background:#1b2630}
+    .timeline-item.current{background:#224035;border-color:#5b9675}.timeline-item.upcoming-rest{border-color:#887041;background:#343126}
+    .timeline-item.done{opacity:.55}.timeline-number{font-size:12px;font-weight:900;border-radius:9px;background:#30414a;color:#cee0e8;width:34px;height:34px;display:grid;place-items:center;flex:none}
+    .timeline-item.current .timeline-number{background:var(--mint);color:#10221b}.timeline-item.upcoming-rest .timeline-number{background:#eed092;color:#2d261b}
+    .timeline-item.done .timeline-number{background:#285443;color:var(--mint)}.timeline-name{font-size:13px;font-weight:700;flex:1;min-width:0;line-height:1.5}.timeline-sub{display:block;font-size:11px;color:#a1b1bf;margin-top:3px;font-weight:400}.timeline-item .timeline-state{font-size:11px;font-weight:700;color:var(--muted);flex:none}.timeline-item.current .timeline-state{color:var(--mint)}.timeline-item.upcoming-rest .timeline-state{color:var(--warn)}
+    @media (min-width:650px){.routine:first-child{grid-column:span 2}}@media (max-width:430px){.session-overview{padding:14px 15px}.routine-timeline{padding:14px 12px}.timeline-item{padding:10px 8px}.routine-actions{flex-wrap:wrap}.routine-actions .primary{flex-basis:100%}}
   </style>
 </head>
 <body>
@@ -26,13 +50,17 @@
     <div class="section-header"><h2>내 운동 루틴</h2><button id="newRoutine" class="ghost" type="button">+ 루틴 만들기</button></div>
     <div class="routine-grid" id="routineGrid"></div>
     <div class="section-header"><h2>알림 설정</h2><span class="subtle">시작 전에 소리 테스트 추천</span></div>
-    <div class="settings"><button type="button" class="switch on" id="soundToggle" aria-pressed="true">♪ 알림음 켜짐</button><button type="button" class="switch on" id="voiceToggle" aria-pressed="true">◉ 음성 켜짐</button><button type="button" class="switch" id="testSound">▷ 소리 테스트</button></div>
+    <div class="settings"><button type="button" class="switch on" id="soundToggle" aria-pressed="true">♪ 알림음 켜짐</button><button type="button" class="switch on" id="voiceToggle" aria-pressed="true">◉ 음성 켜짐</button></div>
+    <div class="voice-select"><label for="voiceProfile">음성 선택</label><select id="voiceProfile"><option value="male">남성 · Supertonic M1</option><option value="female">여성 · Supertonic F1</option><option value="system">아이폰 기본 음성</option></select><div class="voice-status" id="voiceStatus" role="status">음성 파일 확인 중...</div></div>
+    <div class="sound-test-row"><button type="button" class="secondary" id="testRestSound">▷ 휴식 시작 ‘삡!’ 테스트</button><button type="button" class="secondary" id="testWorkSound">▷ 운동 시작 ‘삐빅!’ 테스트</button></div>
     <div class="notice"><span>ⓘ</span><div><b>아이폰 사용 팁</b><br>사파리에서 홈 화면에 추가하면 앱처럼 사용할 수 있어요. 다만 <b>화면 잠금·다른 앱 전환 시 알림이 지연되거나 멈출 수 있으니</b> 화면을 켜고 사용하세요.</div></div>
     <div class="footer">MOVE CLOCK · 브라우저에만 루틴 저장 · 로그인 불필요</div>
   </section>
   <section id="sessionPage" hidden>
     <div class="session-top"><button class="back" type="button" id="goBack">← 루틴 목록</button><span class="step-label" id="stepCount">준비</span></div>
-    <div class="session-card">
+    <div class="session-overview"><div class="overview-label"><div>현재 <strong id="currentOrdinal">01 / 08</strong> <em id="overviewUnit">번째 운동</em></div><span id="overallPercent">0% 완료</span></div><div class="overview-bar"><span id="overallBar"></span></div></div>
+    <div class="session-card" id="sessionCard">
+      <div class="session-headline" id="sessionHeadline">지금 할 운동</div>
       <div class="phase" id="phaseBadge">● 준비</div>
       <h1 class="session-name" id="exerciseName">운동 준비</h1>
       <div class="session-set" id="setLabel"></div>
@@ -42,7 +70,8 @@
     </div>
     <div class="controls"><button class="secondary" id="prevStep" type="button">↶ 이전</button><button class="primary" id="mainControl" type="button">▶ 운동 시작</button><button class="secondary" id="nextStep" type="button">건너뛰기 ↷</button></div>
     <div class="session-footer"><span id="routineTitle"></span><span id="workDone"></span></div>
-    <div class="next-card"><div class="subtle">NEXT</div><b id="nextName">다음 동작</b><span id="nextInfo"></span></div>
+    <div class="next-card"><div class="subtle">다음 단계</div><b id="nextName">다음 동작</b><span id="nextInfo"></span></div>
+    <div class="routine-timeline"><div class="timeline-head"><h2>전체 운동 순서</h2><span id="timelineCount">총 8개 운동</span></div><div class="timeline" id="timeline"></div></div>
     <p class="warning" id="screenWarning">※ iOS에서는 화면이 꺼지면 오디오가 중단될 수 있어요. 운동 중 화면을 켜두세요.</p>
   </section>
 </main>
@@ -60,38 +89,86 @@
 (() => {
   'use strict';
   const STORAGE_KEY = 'move-clock-routines-v1';
+  const MIGRATION_KEY = 'move-clock-presets-v2-added';
   const SETTINGS_KEY = 'move-clock-settings-v1';
   const defaults = [
     {id:'push',name:'푸시업 · 코어',items:[{name:'푸시업',sets:4,work:0,rest:60},{name:'플랭크',sets:3,work:40,rest:45}]},
     {id:'back',name:'등 중앙 · 맨몸',items:[{name:'엎드려 W 레이즈',sets:3,work:30,rest:35},{name:'리버스 스노우 엔젤',sets:3,work:30,rest:40},{name:'엎드려 Y 레이즈',sets:3,work:25,rest:40}]},
-    {id:'hiit',name:'전신 인터벌',items:[{name:'스쿼트',sets:3,work:40,rest:20},{name:'마운틴 클라이머',sets:3,work:30,rest:30},{name:'플랭크',sets:2,work:40,rest:30}]}
+    {id:'hiit',name:'전신 인터벌',items:[{name:'스쿼트',sets:3,work:40,rest:20},{name:'마운틴 클라이머',sets:3,work:30,rest:30},{name:'플랭크',sets:2,work:40,rest:30}]},
+    {id:'shoulder8',name:'어깨 · 상체 8동작',items:[{name:'파이크 푸쉬업',sets:1,work:20,rest:20},{name:'다이아몬드 푸쉬업',sets:1,work:30,rest:20},{name:'숄더탭 & 푸쉬업',sets:1,work:20,rest:20},{name:'핸드스탠드',sets:1,work:20,rest:20},{name:'플랭크 프론트 암 레이즈',sets:1,work:20,rest:20},{name:'플랭크 레터럴 암 레이즈',sets:1,work:20,rest:20},{name:'암 써클',sets:1,work:30,rest:20},{name:'파이크 푸쉬업',sets:1,work:30,rest:20}]}
   ];
   const $ = id => document.getElementById(id);
   const safe = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const clamp = (n,min,max) => Math.max(min,Math.min(max,Number.isFinite(n)?n:min));
   function load(key,fallback) {try {const raw=localStorage.getItem(key); return raw?JSON.parse(raw):structuredClone(fallback);} catch {return structuredClone(fallback);}}
   let routines=load(STORAGE_KEY,defaults);if(!Array.isArray(routines))routines=structuredClone(defaults);
-  let settings=load(SETTINGS_KEY,{sound:true,voice:true});
-  settings={sound:settings.sound!==false,voice:settings.voice!==false};
+  // Existing installs already have a localStorage copy of the default list.
+  // Add the new built-in routine once without overwriting user edits.
+  let alreadyMigrated=false;try{alreadyMigrated=!!localStorage.getItem(MIGRATION_KEY);}catch{}
+  if(!alreadyMigrated){if(!routines.some(r=>r.id==='shoulder8'))routines.push(structuredClone(defaults.find(r=>r.id==='shoulder8')));try{localStorage.setItem(STORAGE_KEY,JSON.stringify(routines));localStorage.setItem(MIGRATION_KEY,'1');}catch{}}
+  let settings=load(SETTINGS_KEY,{sound:true,voice:true,profile:'female'});
+  settings={sound:settings.sound!==false,voice:settings.voice!==false,profile:['male','female','system'].includes(settings.profile)?settings.profile:'female'};
   const persist=()=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify(routines));}catch{alert('저장 공간을 사용할 수 없습니다. 비공개 브라우징 여부를 확인하세요.');}};
   let audio=null;let voices=[];
+  let voiceManifest={};const decodedClips=new Map();let currentClip=null;
   const getVoices=()=>{if('speechSynthesis' in window)voices=speechSynthesis.getVoices();};
   getVoices();if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=getVoices;
+  async function loadVoiceManifest(){
+    try {const r=await fetch('./voices/manifest.json',{cache:'no-store'});if(r.ok){const j=await r.json();voiceManifest=j.voices||{};}}
+    catch(e){console.warn('Supertonic files not deployed:',e);}
+    updateVoiceStatus();preloadVoice();
+  }
+  function hasVoice(profile){return !!(voiceManifest[profile]&&Object.keys(voiceManifest[profile]).length>0);}
+  function updateVoiceStatus(){
+    const profile=settings.profile,el=$('voiceStatus');
+    if(profile==='system'){el.textContent='아이폰 기본 음성 사용 중 (네트워크 불필요).';el.className='voice-status';return;}
+    if(hasVoice(profile)){el.textContent='✓ Supertonic '+(profile==='male'?'남성 M1':'여성 F1')+' 음성 파일 준비됨 · 미리 생성된 음성 재생';el.className='voice-status ready';}
+    else{el.textContent='⚠ Supertonic 음성 파일 미설치 · 생성 스크립트를 실행하기 전에는 아이폰 기본 음성이 대신 재생됩니다.';el.className='voice-status pending';}
+  }
   async function unlockAudio(){try{const AC=window.AudioContext||window.webkitAudioContext;if(AC){audio ||= new AC();await audio.resume();}}catch(e){console.warn('AudioContext unavailable:',e);}}
-  function tone(freq=800,seconds=.15,volume=.17){if(!settings.sound||!audio||audio.state!=='running')return;try{const o=audio.createOscillator(),g=audio.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.001,audio.currentTime);g.gain.exponentialRampToValueAtTime(volume,audio.currentTime+.012);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+seconds);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+seconds+.02);}catch(e){console.warn(e);}}
-  function ding(){tone(980,.14);setTimeout(()=>tone(1320,.18),155);}
-  function speak(message,rate=1.05){if(!settings.voice||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(message);u.lang='ko-KR';u.rate=rate;u.volume=1;const k=voices.find(v=>v.lang.toLowerCase().startsWith('ko'));if(k)u.voice=k;speechSynthesis.speak(u);}catch(e){console.warn(e);}}
-  function silence(){if('speechSynthesis' in window)speechSynthesis.cancel();}
+  function tone(freq=850,seconds=.15,volume=.17,delay=0){if(!settings.sound||!audio||audio.state!=='running')return;try{const now=audio.currentTime+delay,o=audio.createOscillator(),g=audio.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.001,now);g.gain.exponentialRampToValueAtTime(volume,now+.008);g.gain.exponentialRampToValueAtTime(.001,now+seconds);o.connect(g);g.connect(audio.destination);o.start(now);o.stop(now+seconds+.015);}catch(e){console.warn(e);}}
+  function restBeep(){tone(970,.24,.22);}
+  function workDoubleBeep(){tone(1000,.105,.24);tone(1360,.19,.26,.145);}
+  function finishBeep(){tone(880,.1,.16);tone(1160,.12,.18,.16);tone(1540,.28,.2,.34);}
+  function fallbackSpeak(message){if(!('speechSynthesis' in window))return;try{speechSynthesis.cancel();const spoken={'5':'다섯','4':'넷','3':'셋','2':'둘','1':'하나'}[message]||message;const u=new SpeechSynthesisUtterance(spoken);u.lang='ko-KR';u.rate=1.2;u.volume=1;const k=voices.find(v=>v.lang.toLowerCase().startsWith('ko'));if(k)u.voice=k;speechSynthesis.speak(u);}catch(e){console.warn(e);}}
+  function voiceURL(profile,message){return voiceManifest[profile]?.[message]||null;}
+  async function decodeClip(url){if(!audio)return null;if(decodedClips.has(url))return decodedClips.get(url);try{const r=await fetch(url);if(!r.ok)throw new Error('audio HTTP '+r.status);const buffer=await audio.decodeAudioData(await r.arrayBuffer());decodedClips.set(url,buffer);return buffer;}catch(e){console.warn('Voice audio unavailable:',url,e);return null;}}
+  function preloadVoice(){const profile=settings.profile;if(!hasVoice(profile))return;const phrases=['휴식 시작','운동 시작','운동 완료','5','4','3','2','1'];
+    phrases.forEach(async text=>{const url=voiceURL(profile,text);if(url){ // Fetch ahead of time; AudioContext decoding follows user activation.
+      try{const r=await fetch(url);if(r.ok)preloadedBytes.set(url,await r.arrayBuffer());}catch{} }
+    });
+  }
+  const preloadedBytes=new Map();
+  async function playClip(message,profile,request){const url=voiceURL(profile,message);if(!url)return false;
+    if(!audio||audio.state!=='running')return false;
+    let buffer=decodedClips.get(url);
+    if(!buffer){try{const bytes=preloadedBytes.get(url) || await (await fetch(url)).arrayBuffer();buffer=await audio.decodeAudioData(bytes.slice(0));decodedClips.set(url,buffer);}catch(e){console.warn('Voice decode failed:',e);return false;}}
+    // Drop stale completed async requests when the phase has changed.
+    if(profile!==settings.profile||request!==speechRequest)return true;
+    try{if(currentClip)currentClip.stop();}catch{}
+    try{const node=audio.createBufferSource();node.buffer=buffer;node.connect(audio.destination);node.start();currentClip=node;node.onended=()=>{if(currentClip===node)currentClip=null;};return true;}catch(e){console.warn(e);return false;}
+  }
+  let speechRequest=0;
+  async function speak(message){if(!settings.voice)return;const request=++speechRequest;
+    if(settings.profile==='system'||!hasVoice(settings.profile)){fallbackSpeak(message);return;}
+    // User-defined exercise names fall back to a recorded generic cue.
+    const phrase=voiceURL(settings.profile,message)?message:(message.endsWith(' 시작')?'운동 시작':message);
+    const ok=await playClip(phrase,settings.profile,request);if(request!==speechRequest)return;
+    if(!ok)fallbackSpeak(message);
+  }
+  function silence(){speechRequest++;try{currentClip?.stop();}catch{}currentClip=null;if('speechSynthesis' in window)speechSynthesis.cancel();}
   function format(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
   const allSets = r=>r.items.reduce((sum,x)=>sum+x.sets,0);
   function showHome(){stopTimer();silence();$('sessionPage').hidden=true;$('homePage').hidden=false;renderHome();try{history.replaceState({},'',location.pathname);}catch{}}
-  function renderHome(){const grid=$('routineGrid');grid.innerHTML='';for(const r of routines){const card=document.createElement('article');card.className='routine';const manual=r.items.some(x=>x.work===0);card.innerHTML=`<div class="rhead"><div><h3 class="rname">${safe(r.name)}</h3><p class="rmeta">${r.items.length}개 운동 · 총 ${allSets(r)}세트</p></div><span class="subtle">↗</span></div><div class="pills">${r.items.slice(0,3).map(x=>`<span class="pill">${safe(x.name)}</span>`).join('')}${r.items.length>3?`<span class="pill">+${r.items.length-3}</span>`:''}<span class="pill">${manual?'수동 세트 포함':'자동 타이머'}</span></div><div class="routine-actions"><button type="button" class="primary">▶ 시작하기</button><button type="button" class="secondary">편집</button><button type="button" class="secondary" title="단축어용 주소 복사">링크</button></div>`;const [start,edit,copy]=card.querySelectorAll('button');start.onclick=()=>selectRoutine(r.id);edit.onclick=()=>openEditor(r.id);copy.onclick=()=>copyRoutineLink(r.id,copy);grid.appendChild(card);}
-    $('soundToggle').classList.toggle('on',settings.sound);$('voiceToggle').classList.toggle('on',settings.voice);$('soundToggle').setAttribute('aria-pressed',String(settings.sound));$('voiceToggle').setAttribute('aria-pressed',String(settings.voice));$('soundToggle').textContent='♪ 알림음 '+(settings.sound?'켜짐':'꺼짐');$('voiceToggle').textContent='◉ 음성 '+(settings.voice?'켜짐':'꺼짐');}
+  function renderHome(){const grid=$('routineGrid');grid.innerHTML='';for(const r of routines.slice().sort((a,b)=>Number(b.id==='shoulder8')-Number(a.id==='shoulder8'))){const card=document.createElement('article');card.className='routine';const manual=r.items.some(x=>x.work===0);card.innerHTML=`<div class="rhead"><div><h3 class="rname">${safe(r.name)}</h3><p class="rmeta">${r.items.length}개 운동 · 총 ${allSets(r)}세트</p></div><span class="subtle">↗</span></div><div class="pills">${r.items.slice(0,3).map(x=>`<span class="pill">${safe(x.name)}</span>`).join('')}${r.items.length>3?`<span class="pill">+${r.items.length-3}</span>`:''}<span class="pill">${manual?'수동 세트 포함':'자동 타이머'}</span></div><div class="routine-actions"><button type="button" class="primary">▶ 시작하기</button><button type="button" class="secondary">편집</button><button type="button" class="secondary" title="단축어용 주소 복사">링크</button></div>`;const [start,edit,copy]=card.querySelectorAll('button');start.onclick=()=>selectRoutine(r.id);edit.onclick=()=>openEditor(r.id);copy.onclick=()=>copyRoutineLink(r.id,copy);grid.appendChild(card);}
+    $('soundToggle').classList.toggle('on',settings.sound);$('voiceToggle').classList.toggle('on',settings.voice);$('soundToggle').setAttribute('aria-pressed',String(settings.sound));$('voiceToggle').setAttribute('aria-pressed',String(settings.voice));$('soundToggle').textContent='♪ 알림음 '+(settings.sound?'켜짐':'꺼짐');$('voiceToggle').textContent='◉ 음성 '+(settings.voice?'켜짐':'꺼짐');$('voiceProfile').value=settings.profile;updateVoiceStatus();}
   async function copyRoutineLink(id,button){const link=new URL(location.href);link.search='?routine='+encodeURIComponent(id);link.hash='';try{await navigator.clipboard.writeText(link.toString());button.textContent='✓ 복사';setTimeout(()=>{button.textContent='링크';},1500);}catch{prompt('아래 주소를 복사해서 단축어의 URL 동작에 넣으세요.',link.toString());}}
   function saveSettings(){try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));}catch{}renderHome();}
   $('soundToggle').onclick=()=>{settings.sound=!settings.sound;saveSettings();};
   $('voiceToggle').onclick=()=>{settings.voice=!settings.voice;saveSettings();};
-  $('testSound').onclick=async()=>{await unlockAudio();ding();speak('휴식 시간입니다. 잠시 후 다음 운동을 시작합니다.');};
+  $('voiceProfile').onchange=()=>{silence();settings.profile=$('voiceProfile').value;saveSettings();preloadVoice();};
+  $('testRestSound').onclick=async()=>{await unlockAudio();silence();restBeep();speak('휴식 시작');};
+  $('testWorkSound').onclick=async()=>{await unlockAudio();silence();workDoubleBeep();speak('운동 시작');};
   $('newRoutine').onclick=()=>openEditor(null);
   const dlg=$('routineDialog');let editingId=null;let editorItems=[];
   $('closeDialog').onclick=()=>dlg.close();
@@ -101,31 +178,52 @@
   function readRows(){editorItems=[...$('exerciseRows').children].map(d=>({name:d.querySelector('.item-name').value.trim(),sets:clamp(parseInt(d.querySelector('.item-sets').value,10),1,30),work:clamp(parseInt(d.querySelector('.item-work').value,10),0,3600),rest:clamp(parseInt(d.querySelector('.item-rest').value,10),5,3600)}));}
   $('routineForm').onsubmit=e=>{e.preventDefault();readRows();const name=$('routineName').value.trim();if(!name||editorItems.some(x=>!x.name))return alert('루틴 이름과 운동 이름을 입력하세요.');const id=editingId||('custom-'+Date.now());const updated={id,name,items:editorItems};const idx=routines.findIndex(x=>x.id===id);if(idx>=0)routines[idx]=updated;else routines.push(updated);persist();dlg.close();renderHome();};
   $('deleteRoutine').onclick=()=>{if(!editingId||!confirm('이 루틴을 삭제할까요?'))return;routines=routines.filter(x=>x.id!==editingId);persist();dlg.close();renderHome();};
-  function flatten(r){const stages=[];const workouts=[];r.items.forEach((it,exerciseIdx)=>{for(let set=1;set<=it.sets;set++)workouts.push({kind:'work',name:it.name,exerciseIdx,set,sets:it.sets,duration:it.work,rest:it.rest,manual:it.work===0});});workouts.forEach((w,i)=>{stages.push(w);if(i<workouts.length-1)stages.push({kind:'rest',name:'쉬는 시간',duration:w.rest,next:workouts[i+1],exerciseIdx:w.exerciseIdx});});return stages;}
+  function flatten(r){const stages=[];const workouts=[];r.items.forEach((it,exerciseIdx)=>{for(let set=1;set<=it.sets;set++)workouts.push({kind:'work',name:it.name,exerciseIdx,set,sets:it.sets,duration:it.work,rest:it.rest,manual:it.work===0,workoutNo:workouts.length+1});});workouts.forEach((w,i)=>{stages.push(w);if(i<workouts.length-1)stages.push({kind:'rest',name:'쉬는 시간',duration:w.rest,next:workouts[i+1],exerciseIdx:w.exerciseIdx,workoutNo:i+2});});return stages;}
   let selected=null,stages=[],step=-1,elapsed=0,resumeEpoch=0,playing=false,interval=null,lastRemaining=null,completed=false;
   let wakeLock=null;
   function stopTimer(){playing=false;releaseWake();}
   async function getWake(){try{if('wakeLock' in navigator&&document.visibilityState==='visible'&&!wakeLock)wakeLock=await navigator.wakeLock.request('screen');}catch(e){console.warn('Wake lock not available:',e);}}
   async function releaseWake(){try{if(wakeLock)await wakeLock.release();}catch{}wakeLock=null;}
-  function selectRoutine(id){const found=routines.find(r=>r.id===id);if(!found)return;selected=found;stages=flatten(found);step=-1;elapsed=0;completed=false;stopTimer();silence();$('homePage').hidden=true;$('sessionPage').hidden=false;$('routineTitle').textContent=found.name;try{history.replaceState({},'',location.pathname+'?routine='+encodeURIComponent(found.id));}catch{}renderStage();window.scrollTo({top:0,behavior:'instant'});}
+  function selectRoutine(id){const found=routines.find(r=>r.id===id);if(!found)return;selected=found;stages=flatten(found);step=-1;elapsed=0;completed=false;stopTimer();silence();$('homePage').hidden=true;$('sessionPage').hidden=false;$('routineTitle').textContent=found.name;buildTimeline();preloadVoice();try{history.replaceState({},'',location.pathname+'?routine='+encodeURIComponent(found.id));}catch{}renderStage();window.scrollTo({top:0,behavior:'instant'});}
   function stage(){return stages[step];}
-  function advance(direction=1){if(!selected)return;const proposed=step+direction;if(proposed<0){step=-1;elapsed=0;playing=false;stopTimer();renderStage();return;}if(proposed>=stages.length){finish();return;}step=proposed;elapsed=0;lastRemaining=null;resumeEpoch=Date.now();playing=true;getWake();const s=stage();if(s.kind==='rest'){ding();speak('팅! 쉬는 시간!');}else{ding();speak((s.set===1?s.name+'. ':'')+'시작!');}renderStage();}
-  function finish(){stopTimer();completed=true;step=stages.length;elapsed=0;lastRemaining=null;ding();setTimeout(()=>tone(1650,.22),350);speak('운동 완료! 수고했어요.');renderStage();}
+  function advance(direction=1){if(!selected)return;const proposed=step+direction;if(proposed<0){step=-1;elapsed=0;playing=false;stopTimer();renderStage();return;}if(proposed>=stages.length){finish();return;}silence();step=proposed;elapsed=0;lastRemaining=null;resumeEpoch=Date.now();playing=true;getWake();const s=stage();if(s.kind==='rest'){restBeep();speak('휴식 시작');}else{workDoubleBeep();speak(s.name+' 시작');}renderStage();}
+  function finish(){stopTimer();completed=true;step=stages.length;elapsed=0;lastRemaining=null;silence();finishBeep();speak('운동 완료');renderStage();}
   function totalElapsed(){return elapsed+(playing?Math.max(0,Date.now()-resumeEpoch):0);}
   function tick(){if(!playing)return;const s=stage();if(!s)return;const seconds=totalElapsed()/1000;if(!s.manual&&seconds>=s.duration){advance();return;}if(s.kind==='rest'){
-      const remaining=Math.max(0,Math.ceil(s.duration-seconds));if(lastRemaining!==remaining){lastRemaining=remaining;if(remaining>=1&&remaining<=5){tone(remaining===1?1040:770,.08,.13);if(remaining===5)speak('휴식 종료 5초 전',1.35);else speak(String(remaining),1.5);}}}
+      const remaining=Math.max(0,Math.ceil(s.duration-seconds));if(lastRemaining!==remaining){lastRemaining=remaining;if(remaining>=1&&remaining<=5){speak(String(remaining));}}}
     renderTimer();}
   function pause(){if(!playing)return;elapsed=totalElapsed();playing=false;releaseWake();silence();renderStage();}
   function resume(){if(playing||completed||step<0)return;playing=true;resumeEpoch=Date.now();lastRemaining=stage()?.kind==='rest'?Math.ceil(stage().duration-elapsed/1000):null;unlockAudio();getWake();renderStage();}
-  function start(){if(completed){selectRoutine(selected.id);return;}if(step===-1){unlockAudio();advance();return;}if(playing){if(stage().manual&&stage().kind==='work'){advance();}else pause();return;}resume();}
-  function renderStage(){let s=stage();$('stepCount').textContent=completed?'운동 종료':step<0?'시작 전':`단계 ${step+1} / ${stages.length}`;
-    if(completed){$('phaseBadge').className='phase done';$('phaseBadge').textContent='✓ COMPLETE';$('exerciseName').textContent='오늘 운동 끝!';$('setLabel').textContent='전체 루틴을 완료했습니다.';$('clock').textContent='DONE';$('clock').className='time';$('progressBar').style.width='100%';$('sessionHelp').textContent='수고하셨어요. 충분히 회복하세요.';$('mainControl').textContent='↻ 다시 시작';$('prevStep').disabled=true;$('nextStep').disabled=true;$('nextName').textContent='운동 완료';$('nextInfo').textContent='';$('workDone').textContent=`총 ${allSets(selected)}세트`;return;}
-    if(step<0){$('phaseBadge').className='phase';$('phaseBadge').textContent='● READY';$('exerciseName').textContent=stages[0]?.name||'운동 준비';$('setLabel').textContent='첫 번째 운동을 시작할 준비가 됐나요?';$('clock').textContent=stages[0]?.manual?'00:00':format(stages[0]?.duration||0);$('clock').className='time';$('progressBar').style.width='0%';$('sessionHelp').textContent='시작 버튼을 누르면 음성이 활성화됩니다.';$('mainControl').textContent='▶ 운동 시작';$('prevStep').disabled=true;$('nextStep').disabled=false;$('nextName').textContent=stages[0]?.name||'-';$('nextInfo').textContent=`${stages[0]?.sets||1}세트 중 1세트`;$('workDone').textContent=`총 ${allSets(selected)}세트`;return;}
-    $('phaseBadge').className='phase'+(s.kind==='rest'?' rest':'');$('phaseBadge').textContent=s.kind==='rest'?'◐ REST':'● WORK';$('exerciseName').textContent=s.name;$('setLabel').textContent=s.kind==='work'?`${s.set} / ${s.sets}세트${s.manual?' · 직접 완료 버튼 누르기':''}`:`다음: ${s.next.name} · ${s.next.set}세트`;
-    $('sessionHelp').textContent=s.kind==='rest'?'휴식 종료 5초 전부터 카운트다운합니다.':s.manual?'정해진 운동 시간이 없어요. 세트가 끝나면 완료를 누르세요.':'운동 시간이 끝나면 휴식이 자동 시작됩니다.';
+  async function start(){if(completed){selectRoutine(selected.id);return;}if(step===-1){await unlockAudio();advance();return;}if(playing){if(stage().manual&&stage().kind==='work'){advance();}else pause();return;}resume();}
+  function buildTimeline(){const workStages=stages.filter(s=>s.kind==='work');$('timelineCount').textContent=`총 ${workStages.length}개 세트`;
+    $('timeline').innerHTML=workStages.map(s=>`<div class="timeline-item" data-workout="${s.workoutNo}"><span class="timeline-number">${String(s.workoutNo).padStart(2,'0')}</span><div class="timeline-name">${safe(s.name)}<span class="timeline-sub">${s.manual?'수동 종료':s.duration+'초'} · ${s.set}/${s.sets}세트</span></div><span class="timeline-state">예정</span></div>`).join('');
+  }
+  function updateTimeline(){if(!selected)return;const s=stage();const position=completed?allSets(selected):step<0?1:s.workoutNo;
+    for(const el of $('timeline').children){const n=Number(el.dataset.workout),done=completed||n<position,active=!completed&&n===position;
+      el.className='timeline-item'+(done?' done':active?(s?.kind==='rest'?' upcoming-rest':' current'):'');
+      el.querySelector('.timeline-state').textContent=done?'✓ 완료':active?(s?.kind==='rest'?'다음 운동':step<0?'준비':'진행 중'):'예정';
+    }
+  }
+  function updateOverview(){if(!selected)return;const max=allSets(selected),s=stage(),n=completed?max:step<0?1:s.workoutNo;
+    $('currentOrdinal').textContent=`${String(n).padStart(2,'0')} / ${String(max).padStart(2,'0')}`;
+    let completedCount=completed?max:step<0?0:s.kind==='rest'?s.workoutNo-1:s.workoutNo-1;
+    let fraction=0;if(!completed&&step>=0&&s.kind==='work'&&!s.manual)fraction=Math.min(1,totalElapsed()/1000/s.duration);
+    const ratio=100*Math.min(1,(completedCount+fraction)/max);
+    $('overallBar').style.width=ratio+'%';$('overallPercent').textContent=`${Math.floor(ratio)}% 진행`;
+  }
+  function renderStage(){let s=stage();const total=allSets(selected);
+    $('stepCount').textContent=completed?'모든 운동 완료':step<0?`총 ${total}개 세트 · 준비`:s.kind==='rest'?`다음 ${s.workoutNo}/${total}번 운동`:`${s.workoutNo}/${total}번 운동 중`;
+    $('sessionCard').className='session-card '+(completed?'is-done':step<0?'is-ready':s.kind==='rest'?'is-rest':'is-work');
+    $('sessionHeadline').textContent=completed?'모든 세트 완료':step<0?'첫 번째 운동':s.kind==='rest'?'잠시 쉬고, 다음은':'현재 진행 중인 운동';
+    if(completed){$('phaseBadge').className='phase done';$('phaseBadge').textContent='✓ COMPLETE';$('exerciseName').textContent='오늘 운동 끝!';$('setLabel').textContent=`총 ${total}세트를 모두 끝냈어요.`;$('clock').textContent='DONE';$('clock').className='time';$('progressBar').style.width='100%';$('sessionHelp').textContent='수고하셨어요. 충분히 회복하세요.';$('mainControl').textContent='↻ 다시 시작';$('prevStep').disabled=true;$('nextStep').disabled=true;$('nextName').textContent='운동 완료';$('nextInfo').textContent='';$('workDone').textContent=`총 ${total}세트`;updateTimeline();updateOverview();return;}
+    if(step<0){$('phaseBadge').className='phase';$('phaseBadge').textContent='● READY';$('exerciseName').textContent=stages[0]?.name||'운동 준비';$('setLabel').textContent=`1/${stages[0]?.sets||1}세트 · ${stages[0]?.manual?'수동 진행':stages[0]?.duration+'초'}`;$('clock').textContent=stages[0]?.manual?'00:00':format(stages[0]?.duration||0);$('clock').className='time';$('progressBar').style.width='0%';$('sessionHelp').textContent='시작을 누르면 운동·휴식 알림이 이어집니다.';$('mainControl').textContent='▶ 운동 시작';$('prevStep').disabled=true;$('nextStep').disabled=false;$('nextName').textContent='다음은 휴식';$('nextInfo').textContent=stages[1]?.duration+'초 휴식';$('workDone').textContent=`총 ${total}세트`;updateTimeline();updateOverview();return;}
+    $('phaseBadge').className='phase'+(s.kind==='rest'?' rest':'');$('phaseBadge').textContent=s.kind==='rest'?'◐ 휴식 중':'● 운동 중';
+    $('exerciseName').textContent=s.kind==='rest'?s.next.name:s.name;
+    $('setLabel').textContent=s.kind==='work'?`${s.set}/${s.sets}세트 · ${s.duration||'횟수 기준'}${s.manual?' · 완료 버튼 누르기':'초'}`:`다음 ${s.workoutNo}번째 운동 · ${s.next.duration||'수동'}${s.next.manual?'':'초'}`;
+    $('sessionHelp').textContent=s.kind==='rest'?'휴식 종료 5초 전부터 음성으로 5 · 4 · 3 · 2 · 1!':s.manual?'운동을 마치면 「세트 완료」를 눌러주세요.':'종료 시 휴식으로 자동 전환됩니다.';
     $('mainControl').textContent=s.kind==='work'&&s.manual?'✓ 세트 완료':playing?'Ⅱ 일시정지':'▶ 계속하기';$('prevStep').disabled=step===0;$('nextStep').disabled=false;
-    let next=stages[step+1];$('nextName').textContent=next?.kind==='rest'?'쉬는 시간':next?.name||'운동 완료';$('nextInfo').textContent=next?(next.kind==='rest'?`${next.duration}초 휴식`: `${next.set}/${next.sets}세트`):'마지막 단계';$('workDone').textContent=`총 ${allSets(selected)}세트`;renderTimer();}
-  function renderTimer(){const s=stage();if(!s||completed)return;const seconds=totalElapsed()/1000;const count=s.manual?Math.floor(seconds):Math.max(0,Math.ceil(s.duration-seconds));$('clock').textContent=format(count);$('clock').className='time'+(s.kind==='rest'?' rest':'');let ratio=s.manual?0:Math.min(100,Math.max(0,(seconds/s.duration)*100));$('progressBar').style.width=ratio+'%';}
+    let next=stages[step+1];$('nextName').textContent=next?.kind==='rest'?'휴식 시간':next?.name||'전체 운동 완료';$('nextInfo').textContent=next?(next.kind==='rest'?`${next.duration}초 휴식`: `${next.workoutNo}번째 · ${next.set}/${next.sets}세트`):'마지막 단계';$('workDone').textContent=`총 ${total}세트`;updateTimeline();renderTimer();}
+  function renderTimer(){const s=stage();if(!s||completed)return;const seconds=totalElapsed()/1000;const count=s.manual?Math.floor(seconds):Math.max(0,Math.ceil(s.duration-seconds));$('clock').textContent=format(count);$('clock').className='time'+(s.kind==='rest'?' rest':'');let ratio=s.manual?0:Math.min(100,Math.max(0,(seconds/s.duration)*100));$('progressBar').style.width=ratio+'%';updateOverview();}
   $('mainControl').onclick=()=>start();
   $('nextStep').onclick=async()=>{await unlockAudio();if(step===-1)advance();else if(!completed)advance();};
   $('prevStep').onclick=()=>{if(step<=0)return;advance(-1);};
@@ -133,7 +231,7 @@
   window.addEventListener('beforeunload',e=>{if(playing){e.preventDefault();e.returnValue='';}});
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&playing){getWake();tick();}});
   interval=setInterval(tick,100);
-  renderHome();const params=new URLSearchParams(location.search),initial=params.get('routine');if(initial&&routines.some(r=>r.id===initial))selectRoutine(initial);
+  renderHome();loadVoiceManifest();const params=new URLSearchParams(location.search),initial=params.get('routine');if(initial&&routines.some(r=>r.id===initial))selectRoutine(initial);
   if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(e=>console.warn('Offline unavailable:',e));
 })();
 </script>
