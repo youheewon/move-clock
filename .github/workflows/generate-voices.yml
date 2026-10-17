@@ -49,7 +49,7 @@ jobs:
           PY
       - name: Commit pre-rendered audio files
         run: |
-          git add voices/manifest.json voices/male/ voices/female/
+          git add -A voices/manifest.json voices/male/ voices/female/
           if git diff --cached --quiet; then
             echo 'Voice packs already match repository state.'
             exit 0
