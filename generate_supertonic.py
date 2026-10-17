@@ -13,6 +13,9 @@ from __future__ import annotations
 import hashlib
 import json
 import sys
+import wave
+
+import numpy as np
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -21,6 +24,7 @@ PHRASES = BASE / "phrases.json"
 MANIFEST = BASE / "manifest.json"
 PROFILES = {"female": "F1", "male": "M1"}
 VOICE_REVISION = "energetic-2"
+MALE_REVISION = "m1-clarity-1"
 ANNOUNCEMENTS = {
     "휴식 시작": "휴식!",
     "운동 시작": "운동 시작!",
@@ -39,8 +43,32 @@ def spoken_text(phrase: str) -> str:
 SPOKEN_NUMBERS = {"5": "다섯", "4": "넷", "3": "셋", "2": "둘", "1": "하나"}
 
 
-def filename(text: str) -> str:
-    return hashlib.sha256((VOICE_REVISION + ":" + text).encode("utf-8")).hexdigest()[:14] + ".wav"
+def filename(text: str, profile: str) -> str:
+    revision = VOICE_REVISION + (":" + MALE_REVISION if profile == "male" else "")
+    return hashlib.sha256((revision + ":" + text).encode("utf-8")).hexdigest()[:14] + ".wav"
+
+
+def signal_stats(path: Path) -> tuple[float, float]:
+    """Catch Supertonic outputs that have a WAV header but silent PCM."""
+    if not path.is_file() or path.stat().st_size < 1024:
+        return 0.0, 0.0
+    try:
+        with wave.open(str(path), "rb") as src:
+            if src.getsampwidth() != 2:
+                return 0.0, 0.0
+            channels = src.getnchannels()
+            pcm = np.frombuffer(src.readframes(src.getnframes()), dtype="<i2").astype(np.float32) / 32768.0
+        if channels > 1:
+            pcm = pcm.reshape(-1, channels).mean(axis=1)
+        return float(np.max(np.abs(pcm))), float(np.sqrt(np.mean(np.square(pcm))))
+    except (OSError, EOFError, ValueError):
+        return 0.0, 0.0
+
+
+def audible(path: Path) -> bool:
+    peak, rms = signal_stats(path)
+    return peak >= 0.02 and rms >= 0.002
+
 
 
 def main() -> int:
@@ -60,6 +88,7 @@ def main() -> int:
         "generated": True,
         "engine": "Supertonic 3",
         "voice_revision": VOICE_REVISION,
+        "male_revision": MALE_REVISION,
         "profiles": PROFILES,
         "voices": {},
     }
@@ -71,23 +100,37 @@ def main() -> int:
         output_dir.mkdir(parents=True, exist_ok=True)
         mapping = {}
         for pos, phrase in enumerate(phrases, start=1):
-            wav_path = output_dir / filename(phrase)
-            if not wav_path.is_file() or wav_path.stat().st_size < 100:
-                wav, _ = tts.synthesize(
-                    text=spoken_text(phrase),
-                    voice_style=style,
-                    lang="ko",
-                    total_steps=12,
-                    speed=1.24,
-                    silence_duration=0.01,
-                    verbose=False,
-                )
-                tts.save_audio(wav, str(wav_path))
-            if not wav_path.is_file() or wav_path.stat().st_size <= 100:
-                raise RuntimeError(f"Missing or empty clip: {wav_path}")
+            wav_path = output_dir / filename(phrase, profile)
+            if not audible(wav_path):
+                spoken = spoken_text(phrase)
+                # The M1 voice sometimes produces an almost entirely silent
+                # WAV for a short Korean word, despite a normal file size.
+                # Retry with independent samples, and reject invalid audio.
+                variants = [spoken] * 4
+                if phrase == "1":
+                    variants = ["하나!", "하나.", "하나!", "하나."]
+                for attempt, wording in enumerate(variants, start=1):
+                    wav, _ = tts.synthesize(
+                        text=wording,
+                        voice_style=style,
+                        lang="ko",
+                        total_steps=12,
+                        speed=1.12 if profile == "male" else 1.24,
+                        silence_duration=0.3,
+                        verbose=False,
+                    )
+                    tts.save_audio(wav, str(wav_path))
+                    if audible(wav_path):
+                        if attempt > 1:
+                            print(f"  [retry] {profile} {phrase}: usable take on attempt {attempt}", flush=True)
+                        break
+                    print(f"  [rejected silent clip] {profile} {phrase} (attempt {attempt})", flush=True)
+                else:
+                    raise RuntimeError(f"Could not generate audible {profile} voice: {phrase}")
             mapping[phrase] = f"./voices/{profile}/{wav_path.name}"
-            print(f"  {pos:02}/{len(phrases)} {phrase}", flush=True)
-        valid_names = {filename(phrase) for phrase in phrases}
+            peak, rms = signal_stats(wav_path)
+            print(f"  {pos:02}/{len(phrases)} {phrase} peak={peak:.3f} rms={rms:.3f}", flush=True)
+        valid_names = {filename(phrase, profile) for phrase in phrases}
         for outdated in output_dir.glob("*.wav"):
             if outdated.name not in valid_names:
                 outdated.unlink()
