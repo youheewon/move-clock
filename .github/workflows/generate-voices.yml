@@ -30,6 +30,34 @@ jobs:
           python-version: '3.11'
       - name: Install Supertonic
         run: python -m pip install supertonic
+      - name: Diagnose previous voice endings
+        run: |
+          python - <<'PY'
+          import json, wave, numpy as np
+          from pathlib import Path
+          manifest=json.loads(Path('voices/manifest.json').read_text(encoding='utf-8'))
+          for phrase in ('휴식 시작','운동 시작','운동 완료','3','2','1'):
+            for profile in ('female','male'):
+              url=manifest.get('voices',{}).get(profile,{}).get(phrase)
+              if not url: continue
+              filename=Path(url.removeprefix('./'))
+              if not filename.is_file(): continue
+              with wave.open(str(filename),'rb') as wf:
+                raw=wf.readframes(wf.getnframes())
+                rate=wf.getframerate()
+                width=wf.getsampwidth()
+                channels=wf.getnchannels()
+              if width!=2: print(filename,'unsupported width',width); continue
+              data=np.frombuffer(raw,dtype='<i2').astype(np.float32)/32768
+              if channels>1:data=data.reshape(-1,channels).mean(axis=1)
+              peak=np.max(np.abs(data)) if len(data) else 0.0
+              hot=np.where(np.abs(data)>peak*.08)[0]
+              trailing=((len(data)-hot[-1])/rate if len(hot) else None)
+              def tailrms(ms):
+                part=data[-int(rate*ms/1000):]
+                return float(np.sqrt(np.mean(part*part))) if len(part) else 0
+              print(f'{profile:6} {phrase:9} {len(data)/rate:.2f}s  trailing={trailing:.3f}s  rms100={tailrms(100):.4f} rms200={tailrms(200):.4f} peak={peak:.3f}')
+          PY
       - name: Generate both voice packs
         run: python generate_supertonic.py
       - name: Verify both voice packs
