@@ -1,0 +1,9 @@
+{
+  "generated": false,
+  "engine": "Supertonic 3",
+  "profiles": {
+    "male": "M1",
+    "female": "F1"
+  },
+  "voices": {}
+}
