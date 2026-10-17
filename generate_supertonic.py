@@ -20,11 +20,27 @@ BASE = ROOT / "voices"
 PHRASES = BASE / "phrases.json"
 MANIFEST = BASE / "manifest.json"
 PROFILES = {"female": "F1", "male": "M1"}
+VOICE_REVISION = "energetic-2"
+ANNOUNCEMENTS = {
+    "휴식 시작": "휴식!",
+    "운동 시작": "운동 시작!",
+    "운동 완료": "운동 완료!",
+}
+
+
+def spoken_text(phrase: str) -> str:
+    if phrase in SPOKEN_NUMBERS:
+        return SPOKEN_NUMBERS[phrase]
+    if phrase in ANNOUNCEMENTS:
+        return ANNOUNCEMENTS[phrase]
+    if phrase.endswith(" 시작"):
+        return f"{phrase[:-3]}! 시작!"
+    return phrase
 SPOKEN_NUMBERS = {"5": "다섯", "4": "넷", "3": "셋", "2": "둘", "1": "하나"}
 
 
 def filename(text: str) -> str:
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:14] + ".wav"
+    return hashlib.sha256((VOICE_REVISION + ":" + text).encode("utf-8")).hexdigest()[:14] + ".wav"
 
 
 def main() -> int:
@@ -43,6 +59,7 @@ def main() -> int:
     result = {
         "generated": True,
         "engine": "Supertonic 3",
+        "voice_revision": VOICE_REVISION,
         "profiles": PROFILES,
         "voices": {},
     }
@@ -57,12 +74,12 @@ def main() -> int:
             wav_path = output_dir / filename(phrase)
             if not wav_path.is_file() or wav_path.stat().st_size < 100:
                 wav, _ = tts.synthesize(
-                    text=SPOKEN_NUMBERS.get(phrase, phrase),
+                    text=spoken_text(phrase),
                     voice_style=style,
                     lang="ko",
-                    total_steps=8,
-                    speed=1.18,
-                    silence_duration=0.02,
+                    total_steps=12,
+                    speed=1.24,
+                    silence_duration=0.01,
                     verbose=False,
                 )
                 tts.save_audio(wav, str(wav_path))
@@ -70,6 +87,10 @@ def main() -> int:
                 raise RuntimeError(f"Missing or empty clip: {wav_path}")
             mapping[phrase] = f"./voices/{profile}/{wav_path.name}"
             print(f"  {pos:02}/{len(phrases)} {phrase}", flush=True)
+        valid_names = {filename(phrase) for phrase in phrases}
+        for outdated in output_dir.glob("*.wav"):
+            if outdated.name not in valid_names:
+                outdated.unlink()
         result["voices"][profile] = mapping
 
     if any(len(result["voices"][p]) != len(phrases) for p in PROFILES):
