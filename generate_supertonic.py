@@ -25,6 +25,7 @@ MANIFEST = BASE / "manifest.json"
 PROFILES = {"female": "F1", "male": "M1"}
 VOICE_REVISION = "energetic-2"
 MALE_REVISION = "m1-clarity-1"
+FEMALE_REVISION = "f1-clarity-1"
 ANNOUNCEMENTS = {
     "휴식 시작": "휴식!",
     "운동 시작": "운동 시작!",
@@ -44,7 +45,8 @@ SPOKEN_NUMBERS = {"5": "다섯", "4": "넷", "3": "셋", "2": "둘", "1": "하�
 
 
 def filename(text: str, profile: str) -> str:
-    revision = VOICE_REVISION + (":" + MALE_REVISION if profile == "male" else "")
+    profile_revision = MALE_REVISION if profile == "male" else FEMALE_REVISION
+    revision = VOICE_REVISION + ":" + profile_revision
     return hashlib.sha256((revision + ":" + text).encode("utf-8")).hexdigest()[:14] + ".wav"
 
 
@@ -89,6 +91,7 @@ def main() -> int:
         "engine": "Supertonic 3",
         "voice_revision": VOICE_REVISION,
         "male_revision": MALE_REVISION,
+        "female_revision": FEMALE_REVISION,
         "profiles": PROFILES,
         "voices": {},
     }
@@ -115,7 +118,7 @@ def main() -> int:
                         voice_style=style,
                         lang="ko",
                         total_steps=12,
-                        speed=1.12 if profile == "male" else 1.24,
+                        speed=1.12,
                         silence_duration=0.3,
                         verbose=False,
                     )
