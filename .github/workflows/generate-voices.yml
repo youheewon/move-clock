@@ -1,0 +1,59 @@
+name: Build Korean Supertonic voices
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - generate_supertonic.py
+      - voices/phrases.json
+      - .github/workflows/generate-voices.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: move-clock-supertonic-voices
+  cancel-in-progress: false
+
+jobs:
+  synthesize:
+    name: Create male and female voice packs
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install Supertonic
+        run: python -m pip install supertonic
+      - name: Generate both voice packs
+        run: python generate_supertonic.py
+      - name: Verify both voice packs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest=json.loads(Path('voices/manifest.json').read_text(encoding='utf-8'))
+          assert manifest['generated']
+          for key in ('male','female'):
+              clips=manifest['voices'][key]
+              assert len(clips) >= 20, (key,len(clips))
+              for name,url in clips.items():
+                  path=Path(url.removeprefix('./'))
+                  assert path.is_file() and path.stat().st_size > 100, (key,name,url)
+          print('Verified all male and female WAV clips.')
+          PY
+      - name: Commit pre-rendered audio files
+        run: |
+          git add voices/manifest.json voices/male/ voices/female/
+          if git diff --cached --quiet; then
+            echo 'Voice packs already match repository state.'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'build: add generated male and female Korean workout speech'
+          git push origin HEAD:main
