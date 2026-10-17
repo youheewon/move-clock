@@ -2,6 +2,7 @@
   "generated": true,
   "engine": "Supertonic 3",
   "voice_revision": "energetic-2",
+  "male_revision": "m1-clarity-1",
   "profiles": {
     "female": "F1",
     "male": "M1"
@@ -32,28 +33,28 @@
       "암 써클 시작": "./voices/female/27920a5a6e96e5.wav"
     },
     "male": {
-      "휴식 시작": "./voices/male/d71d4c083ce425.wav",
-      "운동 시작": "./voices/male/6f0f4c6442aaa0.wav",
-      "운동 완료": "./voices/male/1ebd9769342fdb.wav",
-      "5": "./voices/male/21e2292dbdf458.wav",
-      "4": "./voices/male/ebb092547eb5f1.wav",
-      "3": "./voices/male/bdb078db15c8da.wav",
-      "2": "./voices/male/a6a7e54d0ef9ed.wav",
-      "1": "./voices/male/022f4209785b79.wav",
-      "푸시업 시작": "./voices/male/0470e16b64ae30.wav",
-      "플랭크 시작": "./voices/male/b0912ed6707607.wav",
-      "엎드려 W 레이즈 시작": "./voices/male/cf44e72132d03e.wav",
-      "리버스 스노우 엔젤 시작": "./voices/male/f1caa4bba004d1.wav",
-      "엎드려 Y 레이즈 시작": "./voices/male/d7c0926d518be7.wav",
-      "스쿼트 시작": "./voices/male/fab75fd86ea7d6.wav",
-      "마운틴 클라이머 시작": "./voices/male/017e23d5a04fee.wav",
-      "파이크 푸쉬업 시작": "./voices/male/5cdda10cdfb2aa.wav",
-      "다이아몬드 푸쉬업 시작": "./voices/male/edef7caf90d184.wav",
-      "숄더탭 & 푸쉬업 시작": "./voices/male/2d430eda36e441.wav",
-      "핸드스탠드 시작": "./voices/male/3ba758dc94d584.wav",
-      "플랭크 프론트 암 레이즈 시작": "./voices/male/a378b5ed304f8e.wav",
-      "플랭크 레터럴 암 레이즈 시작": "./voices/male/c9b3239b09ffcd.wav",
-      "암 써클 시작": "./voices/male/27920a5a6e96e5.wav"
+      "휴식 시작": "./voices/male/bb8f4847b85826.wav",
+      "운동 시작": "./voices/male/af5ca7df8e9a2c.wav",
+      "운동 완료": "./voices/male/bbe7630ba3465d.wav",
+      "5": "./voices/male/f51d7d6fd2efa8.wav",
+      "4": "./voices/male/747bb6cd181be8.wav",
+      "3": "./voices/male/fd01c0e9206703.wav",
+      "2": "./voices/male/6d310232120a90.wav",
+      "1": "./voices/male/6502319d9d64ac.wav",
+      "푸시업 시작": "./voices/male/386eace4b5fbdc.wav",
+      "플랭크 시작": "./voices/male/70d313cc649689.wav",
+      "엎드려 W 레이즈 시작": "./voices/male/62a20fef6c5db5.wav",
+      "리버스 스노우 엔젤 시작": "./voices/male/d798531680d306.wav",
+      "엎드려 Y 레이즈 시작": "./voices/male/fe043f779e7d16.wav",
+      "스쿼트 시작": "./voices/male/a7467eb04b7deb.wav",
+      "마운틴 클라이머 시작": "./voices/male/5f8651b1bb8368.wav",
+      "파이크 푸쉬업 시작": "./voices/male/630ac72bde838c.wav",
+      "다이아몬드 푸쉬업 시작": "./voices/male/a6c027c6fc8653.wav",
+      "숄더탭 & 푸쉬업 시작": "./voices/male/5fe465f7e5dc05.wav",
+      "핸드스탠드 시작": "./voices/male/520ac559984854.wav",
+      "플랭크 프론트 암 레이즈 시작": "./voices/male/c8323c25d6e804.wav",
+      "플랭크 레터럴 암 레이즈 시작": "./voices/male/f628622bb7690a.wav",
+      "암 써클 시작": "./voices/male/c86794601e4afe.wav"
     }
   }
 }
